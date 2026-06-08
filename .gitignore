@@ -1,0 +1,19 @@
+# SCP — Session Context Pre-fill
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+
+# Local testing
+*.db
+*.sqlite
+session_context.md
+test_*.md
+
+# Editor temp files
+*.swp
+*.swo
+*~
+.DS_Store
