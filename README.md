@@ -15,6 +15,12 @@
 
 </div>
 
+<div align="center">
+
+[![pip install](https://img.shields.io/badge/pip%20install-hermes--scp-6366f1?style=flat-square)](https://pypi.org/project/hermes-scp/)
+
+</div>
+
 ---
 
 **Zero-effort context continuity across Hermes sessions.**  
@@ -65,7 +71,7 @@ flowchart TB
 |---------|---------|
 | 🧠 **ICM Context** | Active topics, recent entries, high-importance memories |
 | 💾 **Holographic Facts** | Trusted facts sorted by helpful-to-retrieval ratio |
-| 🌙 **Marveen State** | Latest Dream Engine report + pending bus messages |
+| 🌙 **AMB State** | Latest Dream Engine report + pending bus messages |
 | 🔄 **Profile-Agnostic** | Works with `dev`, `research`, `study`, `general`, any custom profile |
 | 🐶 **Watchdog Mode** | Silent on success, alerts on failure — perfect for cron |
 | 🔌 **Zero Overhead** | Uses Hermes' built-in `prefill_messages_file` — no plugins, no hooks |
@@ -83,7 +89,18 @@ flowchart TB
 
 ## 🔧 Installation
 
-### Option 1: Quick Install (recommended)
+### Option 1: pip install (easiest)
+
+```bash
+pip install hermes-scp
+```
+
+Then configure your Hermes profile:
+```bash
+hermes-scp --profile dev
+```
+
+### Option 2: Quick Install (recommended for Hermes users)
 
 ```bash
 git clone https://github.com/kriszmac4/scp.git ~/scp
