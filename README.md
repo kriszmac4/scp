@@ -18,7 +18,7 @@
 ---
 
 **Zero-effort context continuity across Hermes sessions.**  
-Automatically injects persistent context (ICM, Holographic Memory, Marveen state) into every Hermes session — so your agents always know what happened before.
+Automatically injects persistent context (ICM, Holographic Memory, Agent Message Bus state) into every Hermes session — so your agents always know what happened before.
 
 ---
 
