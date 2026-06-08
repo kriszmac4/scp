@@ -51,7 +51,7 @@ def resolve_paths(hermes_home: str, profile: str) -> dict:
     return {
         "icm_db": str(profile_home / ".local/share/icm/memories.db"),
         "memory_store": str(home / "profiles" / profile / "memory_store.db"),
-        "marveen_data": str(home / "profiles" / profile / "data/marveen"),
+        "amb_data": str(home / "profiles" / profile / "data/agent_message_bus"),
         "output_dir": str(home / "profiles" / profile / "data"),
         "output_file": str(home / "profiles" / profile / "data/session_context.md"),
         "hermes_home": str(home),
@@ -181,7 +181,7 @@ def get_holographic_context(memory_store: str) -> str:
 
 # ─── Marveen Context ────────────────────────────────────────
 
-def get_marveen_context(marveen_data: str) -> str:
+def get_amb_context(amb_data: str) -> str:
     """
     Query Marveen subsystem:
       1. Latest Dream Engine consolidation report
@@ -190,7 +190,7 @@ def get_marveen_context(marveen_data: str) -> str:
     parts = []
 
     # 1. Dream engine report
-    dreams_dir = os.path.join(marveen_data, "dreams")
+    dreams_dir = os.path.join(amb_data, "dreams")
     if os.path.exists(dreams_dir):
         dreams = sorted(
             [f for f in os.listdir(dreams_dir) if f.endswith(".md")],
@@ -210,7 +210,7 @@ def get_marveen_context(marveen_data: str) -> str:
                 pass
 
     # 2. Pending messages
-    msg_db = os.path.join(marveen_data, "agent_messages.db")
+    msg_db = os.path.join(amb_data, "agent_messages.db")
     if os.path.exists(msg_db):
         try:
             conn = sqlite3.connect(msg_db)
@@ -302,7 +302,7 @@ def main():
     if holo:
         sections.append(holo)
 
-    mar = get_marveen_context(paths["marveen_data"])
+    mar = get_amb_context(paths["amb_data"])
     if mar:
         sections.append(mar)
 

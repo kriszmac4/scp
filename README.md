@@ -42,7 +42,7 @@ flowchart TB
     subgraph Sources["Memory Backends"]
         A["🧠 ICM DB"] 
         B["💾 Holographic Store"]
-        C["🌙 Marveen Bus"]
+        C["🌙 AMB Bus"]
     end
     
     D["⚡ scp.py<br><i>cron: every 1h</i>"] 
@@ -79,7 +79,7 @@ flowchart TB
 | Hermes Agent | Any profile |
 | ICM CLI | `icm` installed and in `PATH` |
 | Holographic Memory | `memory_enabled: true` in config |
-| Marveen Bus | Optional — gracefully skipped if missing |
+| AMB Bus | Optional — gracefully skipped if missing |
 
 ## 🔧 Installation
 
@@ -183,8 +183,8 @@ The script runs as a cron job (recommended interval: every hour). Each execution
 |------|--------|-------------------|
 | 1 | **ICM DB**<br>`profiles/<p>/home/.local/share/icm/memories.db` | Top 10 active topics (by count × weight), 5 most recent entries, 5 high-importance items |
 | 2 | **Holographic Store**<br>`profiles/<p>/memory_store.db` | Top 6 trusted facts (sorted by helpful-to-retrieval ratio, trust ≥ 0.3) |
-| 3 | **Marveen Dreams**<br>`profiles/<p>/data/marveen/dreams/` | Latest `.md` consolidation report preview (first 500 chars) |
-| 4 | **Marveen Bus**<br>`profiles/<p>/data/marveen/agent_messages.db` | Count of pending/delivered inter-agent messages |
+| 3 | **AMB Dreams**<br>`profiles/<p>/data/agent_message_bus/dreams/` | Latest `.md` consolidation report preview (first 500 chars) |
+| 4 | **AMB Bus**<br>`profiles/<p>/data/agent_message_bus/agent_messages.db` | Count of pending/delivered inter-agent messages |
 
 ### Kernel-Side Injection
 
@@ -228,7 +228,7 @@ _Hermes: /home/user/.hermes | Profile: dev_
 🧠 **Holographic Memory — Key Facts:**
   • [user_pref] Uses pytest with xdist (trust: 0.9) (3/5 helpful)
 
-📨 **Marveen Bus — Pending Messages:** 2
+📨 **AMB Bus — Pending Messages:** 2
 ```
 
 ## 🐛 Debugging
